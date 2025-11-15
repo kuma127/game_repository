@@ -13,7 +13,8 @@ from ui import (
     create_character_panel,
     show_action_menu,
     show_magic_menu,
-    show_item_menu
+    show_item_menu,
+    show_level_up
 )
 from combat import (
     calculate_damage,
@@ -175,23 +176,25 @@ def battle_turn(player, enemy, battle_log):
     return "continue"
 
 
-def start_battle():
+def start_battle(player: Character) -> str:
     """戦闘を開始する"""
     console.clear()
 
     # キャラクター初期化
-    player = Character("勇者", 100, 100, 50, 50, 25, 10)
-    enemy = Character("ゴブリン", 80, 80, 0, 0, 20, 5)
+    enemy = create_enemy(player.level)
 
     battle_log = BattleLog()
 
+    # 戦闘回数をカウント（戦闘開始時に追加）
+    player.total_battles += 1
+
     # 戦闘開始メッセージ
     console.print(Panel(
-        f"[bold red]{enemy.name} が現れた![/bold red]",
+        f"[bold red]{enemy.name} (Lv.{enemy.level}) が現れた![/bold red]",
         title="⚔️ 戦闘開始",
         border_style="bold red"
     ))
-    battle_log.add(f"{enemy.name} が現れた!", "red")
+    battle_log.add(f"{enemy.name} (Lv.{enemy.level}) が現れた!", "red")
     time.sleep(2)
 
     # 戦闘ループ
@@ -200,13 +203,27 @@ def start_battle():
         result = battle_turn(player, enemy, battle_log)
 
         if result == "victory":
+            player.total_victories += 1
+
             console.clear()
+
+            # 経験値獲得
+            exp_gained = enemy.exp_reward
             console.print(Panel(
-                f"[bold green]🎉 {enemy.name} を倒した! 🎉[/bold green]\n\n[yellow]経験値 100 を獲得![/yellow]",
+                f"[bold green]🎉 {enemy.name} を倒した! 🎉[/bold green]\n\n"
+                f"[yellow]経験値 {exp_gained} を獲得![/yellow]",
                 title="✨ 勝利",
                 border_style="bold green"
             ))
-            break
+            time.sleep(2)
+
+            # レベルアップ判定（追加）
+            level_ups = player.gain_exp(exp_gained)
+            
+            for level_up_data in level_ups:
+                show_level_up(level_up_data)
+
+            return result
 
         elif result == "defeat":
             console.clear()
@@ -215,7 +232,7 @@ def start_battle():
                 title="☠️ 敗北",
                 border_style="bold red"
             ))
-            break
+            return result
 
         elif result == "escaped":
             console.clear()
@@ -224,6 +241,47 @@ def start_battle():
                 title="🏃 脱出成功",
                 border_style="yellow"
             ))
-            break
+            return result
 
         turn += 1
+
+def create_enemy(player_level):
+    """プレイヤーのレベルに応じた敵を生成"""
+    import random
+    from character import Character  # インポートパスは適宜調整
+    
+    # レベルに応じて敵の種類を変更
+    enemy_types = [
+        {"name": "スライム", "hp_base": 30, "attack_base": 10, "defense_base": 3, "exp": 20},
+        {"name": "ゴブリン", "hp_base": 50, "attack_base": 15, "defense_base": 5, "exp": 40},
+        {"name": "オーク", "hp_base": 80, "attack_base": 20, "defense_base": 8, "exp": 70},
+        {"name": "トロール", "hp_base": 120, "attack_base": 25, "defense_base": 12, "exp": 100},
+    ]
+    
+    # プレイヤーレベルに応じて出現する敵を決定
+    if player_level <= 2:
+        enemy_data = enemy_types[0]  # スライム
+    elif player_level <= 4:
+        enemy_data = random.choice(enemy_types[0:2])  # スライム or ゴブリン
+    elif player_level <= 7:
+        enemy_data = random.choice(enemy_types[1:3])  # ゴブリン or オーク
+    else:
+        enemy_data = random.choice(enemy_types[2:4])  # オーク or トロール
+    
+    # レベルに応じてステータスを調整
+    level_modifier = 1 + (player_level - 1) * 0.1
+    
+    enemy = Character(
+        name=enemy_data["name"],
+        hp=int(enemy_data["hp_base"] * level_modifier),
+        max_hp=int(enemy_data["hp_base"] * level_modifier),
+        mp=0,
+        max_mp=0,
+        attack=int(enemy_data["attack_base"] * level_modifier),
+        defense=int(enemy_data["defense_base"] * level_modifier),
+        level=max(1, player_level - 1 + random.randint(-1, 1))
+    )
+    
+    enemy.exp_reward = int(enemy_data["exp"] * level_modifier)
+    
+    return enemy
