@@ -1,0 +1,375 @@
+{
+  "version": "1.0",
+  "enemies": [
+    {
+      "id": "slime",
+      "name": "スライム",
+      "description": "最も弱いモンスター。初心者の練習相手",
+      "level_range": [1, 3],
+      "base_stats": {
+        "hp": 30,
+        "mp": 0,
+        "attack": 10,
+        "defense": 3
+      },
+      "exp_reward": 20,
+      "gold_reward": 10,
+      "ai_pattern": "simple_attack",
+      "special_abilities": [],
+      "rarity": "common"
+    },
+    {
+      "id": "hornet",
+      "name": "ホーネット",
+      "description": "素早く動く大きなハチ。毒針に注意",
+      "level_range": [1, 3],
+      "base_stats": {
+        "hp": 25,
+        "mp": 0,
+        "attack": 12,
+        "defense": 2
+      },
+      "exp_reward": 25,
+      "gold_reward": 12,
+      "ai_pattern": "fast_attack",
+      "special_abilities": ["poison_sting"],
+      "rarity": "common"
+    },
+    {
+      "id": "goblin",
+      "name": "ゴブリン",
+      "description": "小柄だが狡猾な亜人種",
+      "level_range": [2, 5],
+      "base_stats": {
+        "hp": 50,
+        "mp": 0,
+        "attack": 15,
+        "defense": 5
+      },
+      "exp_reward": 40,
+      "gold_reward": 20,
+      "ai_pattern": "balanced",
+      "special_abilities": [],
+      "rarity": "common"
+    },
+    {
+      "id": "bat",
+      "name": "コウモリ",
+      "description": "夜行性の飛行モンスター",
+      "level_range": [2, 4],
+      "base_stats": {
+        "hp": 35,
+        "mp": 0,
+        "attack": 13,
+        "defense": 4
+      },
+      "exp_reward": 30,
+      "gold_reward": 15,
+      "ai_pattern": "evasive",
+      "special_abilities": ["drain"],
+      "rarity": "common"
+    },
+    {
+      "id": "orc",
+      "name": "オーク",
+      "description": "筋骨隆々とした戦士。攻撃力が高い",
+      "level_range": [4, 7],
+      "base_stats": {
+        "hp": 80,
+        "mp": 0,
+        "attack": 20,
+        "defense": 8
+      },
+      "exp_reward": 70,
+      "gold_reward": 35,
+      "ai_pattern": "aggressive",
+      "special_abilities": ["power_attack"],
+      "rarity": "uncommon"
+    },
+    {
+      "id": "wolf",
+      "name": "ウルフ",
+      "description": "野生の狼。連続攻撃を仕掛けてくる",
+      "level_range": [4, 6],
+      "base_stats": {
+        "hp": 60,
+        "mp": 0,
+        "attack": 18,
+        "defense": 6
+      },
+      "exp_reward": 60,
+      "gold_reward": 30,
+      "ai_pattern": "combo_attack",
+      "special_abilities": ["double_bite"],
+      "rarity": "uncommon"
+    },
+    {
+      "id": "lizardman",
+      "name": "リザードマン",
+      "description": "トカゲの亜人種。硬い鱗に覆われている",
+      "level_range": [5, 7],
+      "base_stats": {
+        "hp": 70,
+        "mp": 0,
+        "attack": 16,
+        "defense": 12
+      },
+      "exp_reward": 65,
+      "gold_reward": 32,
+      "ai_pattern": "defensive",
+      "special_abilities": ["scale_guard"],
+      "rarity": "uncommon"
+    },
+    {
+      "id": "dark_wizard",
+      "name": "ダークウィザード",
+      "description": "闇魔法を操る魔法使い",
+      "level_range": [5, 8],
+      "base_stats": {
+        "hp": 55,
+        "mp": 30,
+        "attack": 14,
+        "defense": 7
+      },
+      "exp_reward": 80,
+      "gold_reward": 40,
+      "ai_pattern": "magic_user",
+      "special_abilities": ["dark_bolt", "curse"],
+      "rarity": "uncommon"
+    },
+    {
+      "id": "troll",
+      "name": "トロール",
+      "description": "巨大な体と怪力を持つモンスター",
+      "level_range": [7, 10],
+      "base_stats": {
+        "hp": 120,
+        "mp": 0,
+        "attack": 25,
+        "defense": 12
+      },
+      "exp_reward": 100,
+      "gold_reward": 50,
+      "ai_pattern": "aggressive",
+      "special_abilities": ["slam", "regeneration"],
+      "rarity": "rare"
+    },
+    {
+      "id": "minotaur",
+      "name": "ミノタウロス",
+      "description": "牛頭人身の強力な戦士",
+      "level_range": [7, 9],
+      "base_stats": {
+        "hp": 110,
+        "mp": 0,
+        "attack": 28,
+        "defense": 10
+      },
+      "exp_reward": 110,
+      "gold_reward": 55,
+      "ai_pattern": "berserker",
+      "special_abilities": ["charge", "berserk"],
+      "rarity": "rare"
+    },
+    {
+      "id": "chimera",
+      "name": "キマイラ",
+      "description": "三つの頭を持つ合成獣",
+      "level_range": [8, 10],
+      "base_stats": {
+        "hp": 100,
+        "mp": 20,
+        "attack": 24,
+        "defense": 11
+      },
+      "exp_reward": 120,
+      "gold_reward": 60,
+      "ai_pattern": "multi_attack",
+      "special_abilities": ["fire_breath", "poison_fang", "tail_whip"],
+      "rarity": "rare"
+    },
+    {
+      "id": "demon",
+      "name": "デーモン",
+      "description": "地獄から召喚された悪魔",
+      "level_range": [9, 12],
+      "base_stats": {
+        "hp": 130,
+        "mp": 40,
+        "attack": 26,
+        "defense": 13
+      },
+      "exp_reward": 140,
+      "gold_reward": 70,
+      "ai_pattern": "evil_magic",
+      "special_abilities": ["hellfire", "curse", "drain"],
+      "rarity": "rare"
+    },
+    {
+      "id": "metal_slime",
+      "name": "メタルスライム",
+      "description": "金属のように硬い珍しいスライム。大量の経験値を持つ",
+      "level_range": [1, 15],
+      "base_stats": {
+        "hp": 10,
+        "mp": 0,
+        "attack": 5,
+        "defense": 50
+      },
+      "exp_reward": 500,
+      "gold_reward": 100,
+      "ai_pattern": "escape",
+      "special_abilities": ["high_evasion", "escape"],
+      "rarity": "legendary"
+    },
+    {
+      "id": "dragon",
+      "name": "ドラゴン",
+      "description": "伝説の飛竜。全ての能力が高い",
+      "level_range": [10, 15],
+      "base_stats": {
+        "hp": 200,
+        "mp": 50,
+        "attack": 35,
+        "defense": 20
+      },
+      "exp_reward": 300,
+      "gold_reward": 150,
+      "ai_pattern": "boss",
+      "special_abilities": ["dragon_breath", "wing_attack", "roar"],
+      "rarity": "legendary"
+    },
+    {
+      "id": "undead_lord",
+      "name": "アンデッドロード",
+      "description": "死者を統べる強力なネクロマンサー",
+      "level_range": [10, 15],
+      "base_stats": {
+        "hp": 150,
+        "mp": 80,
+        "attack": 22,
+        "defense": 15
+      },
+      "exp_reward": 280,
+      "gold_reward": 140,
+      "ai_pattern": "necromancer",
+      "special_abilities": ["death_spell", "summon_undead", "life_drain"],
+      "rarity": "legendary"
+    }
+  ],
+  "ai_patterns": {
+    "simple_attack": {
+      "description": "基本的な攻撃のみ",
+      "actions": [
+        {"type": "attack", "weight": 1.0}
+      ]
+    },
+    "fast_attack": {
+      "description": "素早い攻撃を繰り出す",
+      "actions": [
+        {"type": "attack", "weight": 0.8},
+        {"type": "special", "weight": 0.2}
+      ]
+    },
+    "balanced": {
+      "description": "バランスの取れた行動",
+      "actions": [
+        {"type": "attack", "weight": 0.7},
+        {"type": "strong_attack", "weight": 0.3}
+      ]
+    },
+    "evasive": {
+      "description": "回避を重視",
+      "actions": [
+        {"type": "attack", "weight": 0.6},
+        {"type": "defend", "weight": 0.4}
+      ]
+    },
+    "aggressive": {
+      "description": "攻撃的な行動パターン",
+      "actions": [
+        {"type": "attack", "weight": 0.5},
+        {"type": "strong_attack", "weight": 0.5}
+      ]
+    },
+    "combo_attack": {
+      "description": "連続攻撃を行う",
+      "actions": [
+        {"type": "attack", "weight": 0.4},
+        {"type": "double_attack", "weight": 0.6}
+      ]
+    },
+    "defensive": {
+      "description": "防御的な戦い方",
+      "actions": [
+        {"type": "attack", "weight": 0.5},
+        {"type": "defend", "weight": 0.3},
+        {"type": "counter", "weight": 0.2}
+      ]
+    },
+    "magic_user": {
+      "description": "魔法を積極的に使う",
+      "actions": [
+        {"type": "attack", "weight": 0.3},
+        {"type": "magic", "weight": 0.7}
+      ]
+    },
+    "berserker": {
+      "description": "体力が減ると攻撃的になる",
+      "actions": [
+        {"type": "attack", "weight": 0.4},
+        {"type": "strong_attack", "weight": 0.4},
+        {"type": "berserk", "weight": 0.2}
+      ]
+    },
+    "multi_attack": {
+      "description": "様々な攻撃を使い分ける",
+      "actions": [
+        {"type": "attack", "weight": 0.3},
+        {"type": "special1", "weight": 0.3},
+        {"type": "special2", "weight": 0.2},
+        {"type": "special3", "weight": 0.2}
+      ]
+    },
+    "evil_magic": {
+      "description": "邪悪な魔法を使う",
+      "actions": [
+        {"type": "attack", "weight": 0.2},
+        {"type": "dark_magic", "weight": 0.5},
+        {"type": "curse", "weight": 0.3}
+      ]
+    },
+    "escape": {
+      "description": "逃げようとする",
+      "actions": [
+        {"type": "escape", "weight": 0.7},
+        {"type": "attack", "weight": 0.3}
+      ]
+    },
+    "boss": {
+      "description": "ボス級の多彩な攻撃",
+      "actions": [
+        {"type": "attack", "weight": 0.2},
+        {"type": "strong_attack", "weight": 0.3},
+        {"type": "special1", "weight": 0.25},
+        {"type": "special2", "weight": 0.15},
+        {"type": "special3", "weight": 0.1}
+      ]
+    },
+    "necromancer": {
+      "description": "死霊術を使う",
+      "actions": [
+        {"type": "attack", "weight": 0.2},
+        {"type": "death_magic", "weight": 0.4},
+        {"type": "summon", "weight": 0.2},
+        {"type": "drain", "weight": 0.2}
+      ]
+    }
+  },
+  "rarity_weights": {
+    "common": 0.65,
+    "uncommon": 0.25,
+    "rare": 0.08,
+    "legendary": 0.02
+  }
+}

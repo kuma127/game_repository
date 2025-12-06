@@ -5,7 +5,8 @@ from rich.panel import Panel
 from rich.prompt import Prompt, Confirm
 from character import Character
 from battle import start_battle
-from ui import create_character_panel, show_save_menu, show_load_menu
+from ui import create_character_panel, show_save_menu, show_load_menu,show_equipment_menu
+from equipment_manager import get_equipment_manager
 from save_system import SaveSystem
 import time
 
@@ -42,14 +43,34 @@ def game_loop():
         console.clear()
         player_name = Prompt.ask("[bold cyan]あなたの名前を入力してください[/bold cyan]", default="勇者")
         player = Character(player_name, 100, 100, 50, 50, 25, 10, level=1)
+
+        # 初期装備を付与
+        equipment_manager = get_equipment_manager()
+
+        starter_weapon = equipment_manager.get_equipment("wooden_sword")
+        starter_armor = equipment_manager.get_equipment("cloth_armor")
+        
+        if starter_weapon:
+            player.add_equipment_to_inventory(starter_weapon)
+            player.equipment.equip(starter_weapon, player.level)
+        
+        if starter_armor:
+            player.add_equipment_to_inventory(starter_armor)
+            player.equipment.equip(starter_armor, player.level)
+        
+        # ステータス再計算
+        player.recalculate_stats()
         
         console.print(Panel(
             f"[bold green]ようこそ、{player_name}![/bold green]\n\n"
-            f"[white]あなたの冒険が始まります...[/white]",
+            f"[white]あなたの冒険が始まります...[/white]\n\n"
+            f"[yellow]初期装備を受け取りました:[/yellow]\n"
+            f"• {starter_weapon.name}\n"
+            f"• {starter_armor.name}",
             title="🎮 冒険の始まり",
             border_style="bold green"
         ))
-        time.sleep(2)
+        time.sleep(3)
     
     elif choice == "2":
         # ロード
@@ -96,13 +117,14 @@ def game_loop():
         console.print("[bold yellow]--- メニュー ---[/bold yellow]")
         console.print("1: 戦闘")
         console.print("2: 休憩 (HP/MP全回復)")
-        console.print("3: セーブ")
-        console.print("4: ステータス確認")
-        console.print("5: ゲーム終了")
-        
+        console.print("3: 装備")  # 追加
+        console.print("4: セーブ")
+        console.print("5: ステータス確認")
+        console.print("6: ゲーム終了")
+
         choice = Prompt.ask(
             "行動を選択してください",
-            choices=["1", "2", "3", "4", "5"],
+            choices=["1", "2", "3", "4", "5", "6"],
             default="1"
         )
         
@@ -150,6 +172,10 @@ def game_loop():
             time.sleep(1)
         
         elif choice == "3":
+          # 装備メニュー（追加）
+          show_equipment_menu(player)
+        
+        elif choice == "4":
             # セーブ
             console.clear()
             slot = show_save_menu(save_system)
@@ -170,7 +196,7 @@ def game_loop():
                 
                 time.sleep(1)
         
-        elif choice == "4":
+        elif choice == "5":
             # ステータス確認
             console.clear()
             console.print(Panel(
@@ -180,7 +206,7 @@ def game_loop():
             ))
             Prompt.ask("\n[dim]Enterキーで戻る[/dim]", default="")
         
-        elif choice == "5":
+        elif choice == "6":
             # ゲーム終了
             if Confirm.ask("セーブして終了しますか?"):
                 console.clear()

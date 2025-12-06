@@ -1,0 +1,322 @@
+{
+  "version": "1.0",
+  "weapons": [
+    {
+      "id": "wooden_sword",
+      "name": "木の剣",
+      "description": "訓練用の木製の剣",
+      "type": "weapon",
+      "rarity": "common",
+      "required_level": 1,
+      "stats": {
+        "attack": 5
+      },
+      "price": 50,
+      "sell_price": 25
+    },
+    {
+      "id": "iron_sword",
+      "name": "鉄の剣",
+      "description": "鉄で作られた一般的な剣",
+      "type": "weapon",
+      "rarity": "common",
+      "required_level": 3,
+      "stats": {
+        "attack": 12
+      },
+      "price": 200,
+      "sell_price": 100
+    },
+    {
+      "id": "steel_sword",
+      "name": "鋼の剣",
+      "description": "鋼鉄製の頑丈な剣",
+      "type": "weapon",
+      "rarity": "uncommon",
+      "required_level": 5,
+      "stats": {
+        "attack": 20
+      },
+      "price": 500,
+      "sell_price": 250
+    },
+    {
+      "id": "silver_sword",
+      "name": "銀の剣",
+      "description": "銀で作られた魔力を帯びた剣",
+      "type": "weapon",
+      "rarity": "uncommon",
+      "required_level": 7,
+      "stats": {
+        "attack": 28,
+        "magic_attack": 5
+      },
+      "price": 1000,
+      "sell_price": 500
+    },
+    {
+      "id": "holy_sword",
+      "name": "聖剣",
+      "description": "聖なる力を宿した剣",
+      "type": "weapon",
+      "rarity": "rare",
+      "required_level": 10,
+      "stats": {
+        "attack": 40,
+        "magic_attack": 10
+      },
+      "price": 3000,
+      "sell_price": 1500
+    },
+    {
+      "id": "demon_slayer",
+      "name": "魔剣",
+      "description": "伝説の魔を討つ剣",
+      "type": "weapon",
+      "rarity": "legendary",
+      "required_level": 12,
+      "stats": {
+        "attack": 55,
+        "magic_attack": 15,
+        "critical_rate": 10
+      },
+      "price": 10000,
+      "sell_price": 5000
+    },
+    {
+      "id": "wooden_staff",
+      "name": "木の杖",
+      "description": "魔法使いの基本装備",
+      "type": "weapon",
+      "rarity": "common",
+      "required_level": 1,
+      "stats": {
+        "attack": 2,
+        "magic_attack": 8
+      },
+      "price": 60,
+      "sell_price": 30
+    },
+    {
+      "id": "magic_staff",
+      "name": "魔法の杖",
+      "description": "魔力を増幅する杖",
+      "type": "weapon",
+      "rarity": "uncommon",
+      "required_level": 5,
+      "stats": {
+        "attack": 5,
+        "magic_attack": 20,
+        "max_mp": 10
+      },
+      "price": 800,
+      "sell_price": 400
+    }
+  ],
+  "armors": [
+    {
+      "id": "cloth_armor",
+      "name": "布の服",
+      "description": "普通の布でできた服",
+      "type": "armor",
+      "rarity": "common",
+      "required_level": 1,
+      "stats": {
+        "defense": 3,
+        "max_hp": 5
+      },
+      "price": 40,
+      "sell_price": 20
+    },
+    {
+      "id": "leather_armor",
+      "name": "革の鎧",
+      "description": "動きやすい革製の鎧",
+      "type": "armor",
+      "rarity": "common",
+      "required_level": 2,
+      "stats": {
+        "defense": 8,
+        "max_hp": 10
+      },
+      "price": 150,
+      "sell_price": 75
+    },
+    {
+      "id": "chain_mail",
+      "name": "チェインメイル",
+      "description": "鎖で編まれた鎧",
+      "type": "armor",
+      "rarity": "uncommon",
+      "required_level": 4,
+      "stats": {
+        "defense": 15,
+        "max_hp": 20
+      },
+      "price": 400,
+      "sell_price": 200
+    },
+    {
+      "id": "iron_armor",
+      "name": "鉄の鎧",
+      "description": "重厚な鉄製の鎧",
+      "type": "armor",
+      "rarity": "uncommon",
+      "required_level": 6,
+      "stats": {
+        "defense": 22,
+        "max_hp": 30
+      },
+      "price": 800,
+      "sell_price": 400
+    },
+    {
+      "id": "steel_armor",
+      "name": "鋼の鎧",
+      "description": "強固な鋼鉄製の鎧",
+      "type": "armor",
+      "rarity": "rare",
+      "required_level": 9,
+      "stats": {
+        "defense": 35,
+        "max_hp": 50
+      },
+      "price": 2000,
+      "sell_price": 1000
+    },
+    {
+      "id": "dragon_armor",
+      "name": "ドラゴンアーマー",
+      "description": "ドラゴンの鱗で作られた最強の鎧",
+      "type": "armor",
+      "rarity": "legendary",
+      "required_level": 12,
+      "stats": {
+        "defense": 50,
+        "max_hp": 80,
+        "fire_resist": 50
+      },
+      "price": 8000,
+      "sell_price": 4000
+    },
+    {
+      "id": "magic_robe",
+      "name": "魔法のローブ",
+      "description": "魔力を高めるローブ",
+      "type": "armor",
+      "rarity": "uncommon",
+      "required_level": 4,
+      "stats": {
+        "defense": 10,
+        "max_mp": 20,
+        "magic_defense": 15
+      },
+      "price": 500,
+      "sell_price": 250
+    }
+  ],
+  "accessories": [
+    {
+      "id": "power_ring",
+      "name": "力の指輪",
+      "description": "攻撃力を高める指輪",
+      "type": "accessory",
+      "rarity": "uncommon",
+      "required_level": 3,
+      "stats": {
+        "attack": 5
+      },
+      "price": 300,
+      "sell_price": 150
+    },
+    {
+      "id": "defense_ring",
+      "name": "守りの指輪",
+      "description": "防御力を高める指輪",
+      "type": "accessory",
+      "rarity": "uncommon",
+      "required_level": 3,
+      "stats": {
+        "defense": 5
+      },
+      "price": 300,
+      "sell_price": 150
+    },
+    {
+      "id": "hp_amulet",
+      "name": "生命のアミュレット",
+      "description": "最大HPを増やすお守り",
+      "type": "accessory",
+      "rarity": "rare",
+      "required_level": 5,
+      "stats": {
+        "max_hp": 30
+      },
+      "price": 600,
+      "sell_price": 300
+    },
+    {
+      "id": "mp_amulet",
+      "name": "魔力のアミュレット",
+      "description": "最大MPを増やすお守り",
+      "type": "accessory",
+      "rarity": "rare",
+      "required_level": 5,
+      "stats": {
+        "max_mp": 20
+      },
+      "price": 600,
+      "sell_price": 300
+    },
+    {
+      "id": "critical_ring",
+      "name": "クリティカルリング",
+      "description": "会心の一撃が出やすくなる",
+      "type": "accessory",
+      "rarity": "rare",
+      "required_level": 8,
+      "stats": {
+        "critical_rate": 15
+      },
+      "price": 1500,
+      "sell_price": 750
+    },
+    {
+      "id": "exp_pendant",
+      "name": "経験のペンダント",
+      "description": "獲得経験値が増加する",
+      "type": "accessory",
+      "rarity": "legendary",
+      "required_level": 1,
+      "stats": {
+        "exp_bonus": 20
+      },
+      "price": 5000,
+      "sell_price": 2500
+    }
+  ],
+  "drop_tables": {
+    "common_enemy": [
+      {"item_id": "wooden_sword", "chance": 0.05},
+      {"item_id": "cloth_armor", "chance": 0.05},
+      {"item_id": "leather_armor", "chance": 0.03}
+    ],
+    "uncommon_enemy": [
+      {"item_id": "iron_sword", "chance": 0.08},
+      {"item_id": "chain_mail", "chance": 0.08},
+      {"item_id": "power_ring", "chance": 0.05}
+    ],
+    "rare_enemy": [
+      {"item_id": "steel_sword", "chance": 0.10},
+      {"item_id": "iron_armor", "chance": 0.10},
+      {"item_id": "hp_amulet", "chance": 0.08},
+      {"item_id": "critical_ring", "chance": 0.05}
+    ],
+    "legendary_enemy": [
+      {"item_id": "holy_sword", "chance": 0.15},
+      {"item_id": "dragon_armor", "chance": 0.15},
+      {"item_id": "demon_slayer", "chance": 0.05},
+      {"item_id": "exp_pendant", "chance": 0.03}
+    ]
+  }
+}

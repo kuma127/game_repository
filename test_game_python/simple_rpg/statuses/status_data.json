@@ -1,0 +1,221 @@
+{
+  "version": "1.0",
+  "statuses": [
+    {
+      "id": "poison",
+      "name": "毒",
+      "icon": "🧪",
+      "description": "ターン終了時にダメージを受ける",
+      "type": "negative",
+      "duration_turns": 3,
+      "effects": {
+        "damage_per_turn": 0.08,
+        "damage_type": "percentage"
+      },
+      "can_stack": false,
+      "prevent_actions": [],
+      "message_on_apply": "{target}は毒を受けた！",
+      "message_on_turn": "{target}は毒のダメージを受けた！",
+      "message_on_expire": "{target}の毒が治った"
+    },
+    {
+      "id": "burn",
+      "name": "火傷",
+      "icon": "🔥",
+      "description": "ターン終了時に固定ダメージを受ける",
+      "type": "negative",
+      "duration_turns": 4,
+      "effects": {
+        "damage_per_turn": 10,
+        "damage_type": "fixed"
+      },
+      "can_stack": false,
+      "prevent_actions": [],
+      "message_on_apply": "{target}は火傷を負った！",
+      "message_on_turn": "{target}は火傷のダメージを受けた！",
+      "message_on_expire": "{target}の火傷が治った"
+    },
+    {
+      "id": "paralysis",
+      "name": "麻痺",
+      "icon": "⚡",
+      "description": "一定確率で行動できなくなる",
+      "type": "negative",
+      "duration_turns": 2,
+      "effects": {
+        "action_fail_chance": 0.3,
+        "speed_reduction": 0.5
+      },
+      "can_stack": false,
+      "prevent_actions": [],
+      "message_on_apply": "{target}は麻痺した！",
+      "message_on_turn": "{target}は体が痺れて動けない！",
+      "message_on_expire": "{target}の麻痺が治った"
+    },
+    {
+      "id": "sleep",
+      "name": "睡眠",
+      "icon": "💤",
+      "description": "行動できなくなるが、攻撃を受けると目覚める",
+      "type": "negative",
+      "duration_turns": 3,
+      "effects": {
+        "action_fail_chance": 1.0,
+        "wake_on_damage": true
+      },
+      "can_stack": false,
+      "prevent_actions": ["attack", "magic", "item", "defend"],
+      "message_on_apply": "{target}は眠ってしまった！",
+      "message_on_turn": "{target}はぐっすり眠っている...",
+      "message_on_expire": "{target}は目を覚ました！"
+    },
+    {
+      "id": "confusion",
+      "name": "混乱",
+      "icon": "😵",
+      "description": "一定確率で味方を攻撃してしまう",
+      "type": "negative",
+      "duration_turns": 2,
+      "effects": {
+        "self_attack_chance": 0.5
+      },
+      "can_stack": false,
+      "prevent_actions": [],
+      "message_on_apply": "{target}は混乱した！",
+      "message_on_turn": "{target}は混乱している！",
+      "message_on_expire": "{target}は正気に戻った"
+    },
+    {
+      "id": "curse",
+      "name": "呪い",
+      "icon": "👻",
+      "description": "攻撃力と防御力が低下する",
+      "type": "negative",
+      "duration_turns": 5,
+      "effects": {
+        "attack_reduction": 0.3,
+        "defense_reduction": 0.3
+      },
+      "can_stack": false,
+      "prevent_actions": [],
+      "message_on_apply": "{target}は呪われた！",
+      "message_on_turn": "{target}は呪いに苦しんでいる...",
+      "message_on_expire": "{target}の呪いが解けた"
+    },
+    {
+      "id": "freeze",
+      "name": "凍結",
+      "icon": "❄️",
+      "description": "1ターン行動不能になる",
+      "type": "negative",
+      "duration_turns": 1,
+      "effects": {
+        "action_fail_chance": 1.0
+      },
+      "can_stack": false,
+      "prevent_actions": ["attack", "magic", "item", "defend"],
+      "message_on_apply": "{target}は凍りついた！",
+      "message_on_turn": "{target}は凍っている！",
+      "message_on_expire": "{target}の氷が解けた"
+    },
+    {
+      "id": "bleed",
+      "name": "出血",
+      "icon": "🩸",
+      "description": "ターン終了時に大きなダメージを受ける",
+      "type": "negative",
+      "duration_turns": 3,
+      "effects": {
+        "damage_per_turn": 0.12,
+        "damage_type": "percentage"
+      },
+      "can_stack": true,
+      "max_stacks": 3,
+      "prevent_actions": [],
+      "message_on_apply": "{target}は出血した！",
+      "message_on_turn": "{target}は出血のダメージを受けた！",
+      "message_on_expire": "{target}の出血が止まった"
+    },
+    {
+      "id": "regeneration",
+      "name": "再生",
+      "icon": "💚",
+      "description": "ターン終了時にHPが回復する",
+      "type": "positive",
+      "duration_turns": 5,
+      "effects": {
+        "heal_per_turn": 0.1,
+        "heal_type": "percentage"
+      },
+      "can_stack": false,
+      "prevent_actions": [],
+      "message_on_apply": "{target}は再生状態になった！",
+      "message_on_turn": "{target}のHPが回復した！",
+      "message_on_expire": "{target}の再生効果が切れた"
+    },
+    {
+      "id": "attack_up",
+      "name": "攻撃上昇",
+      "icon": "⚔️",
+      "description": "攻撃力が上昇する",
+      "type": "positive",
+      "duration_turns": 3,
+      "effects": {
+        "attack_boost": 0.5
+      },
+      "can_stack": false,
+      "prevent_actions": [],
+      "message_on_apply": "{target}の攻撃力が上がった！",
+      "message_on_turn": "",
+      "message_on_expire": "{target}の攻撃力が元に戻った"
+    },
+    {
+      "id": "defense_up",
+      "name": "防御上昇",
+      "icon": "🛡️",
+      "description": "防御力が上昇する",
+      "type": "positive",
+      "duration_turns": 3,
+      "effects": {
+        "defense_boost": 0.5
+      },
+      "can_stack": false,
+      "prevent_actions": [],
+      "message_on_apply": "{target}の防御力が上がった！",
+      "message_on_turn": "",
+      "message_on_expire": "{target}の防御力が元に戻った"
+    },
+    {
+      "id": "shield",
+      "name": "バリア",
+      "icon": "✨",
+      "description": "一定量のダメージを無効化する",
+      "type": "positive",
+      "duration_turns": 2,
+      "effects": {
+        "damage_reduction": 0.5
+      },
+      "can_stack": false,
+      "prevent_actions": [],
+      "message_on_apply": "{target}はバリアを張った！",
+      "message_on_turn": "",
+      "message_on_expire": "{target}のバリアが消えた"
+    }
+  ],
+  "status_resistances": {
+    "poison": {
+      "cloth_armor": 0,
+      "leather_armor": 10,
+      "chain_mail": 15,
+      "iron_armor": 20,
+      "steel_armor": 30,
+      "dragon_armor": 50
+    },
+    "burn": {
+      "dragon_armor": 80
+    },
+    "paralysis": {
+      "magic_robe": 20
+    }
+  }
+}
