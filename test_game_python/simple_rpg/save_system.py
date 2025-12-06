@@ -2,7 +2,7 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-from test_game_python.simple_rpg.character import Character
+from character import Character
 
 
 class SaveSystem:
